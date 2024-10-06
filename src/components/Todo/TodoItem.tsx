@@ -1,25 +1,18 @@
-import * as React from 'react';
-
-export type TodoItem = {
-  id: number,
-  title: string,
-  is_completed: boolean
-};
+import * as React from "react";
+import { Todos } from "../../generated/graphql";
 
 interface TodoItemType {
-  index: number,
-  todo: TodoItem
-};
+  index: number;
+  todo: Pick<Todos, "id" | "title" | "is_completed">;
+}
 
-const TodoItem = ({index, todo}: TodoItemType) => {
-
+const TodoItem = ({ index, todo }: TodoItemType) => {
   const removeTodo = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
   };
 
-  const toggleTodo = () => {
-  };
+  const toggleTodo = () => {};
 
   return (
     <li key={index}>
@@ -31,14 +24,12 @@ const TodoItem = ({index, todo}: TodoItemType) => {
             id={todo.id!.toString()}
             onChange={() => toggleTodo()}
           />
-          <label htmlFor={todo.id!.toString()}/>
+          <label htmlFor={todo.id!.toString()} />
         </div>
       </div>
 
-      <div className={"labelContent" + (todo.is_completed ? " completed" : '')}>
-        <div>
-          {todo.title}
-        </div>
+      <div className={"labelContent" + (todo.is_completed ? " completed" : "")}>
+        <div>{todo.title}</div>
       </div>
 
       <button className="closeBtn" onClick={(e) => removeTodo(e)}>

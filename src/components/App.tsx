@@ -1,13 +1,14 @@
 import * as React from "react";
 
-import Header from "./Header";
-import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import {
   ApolloClient,
   ApolloProvider,
   HttpLink,
   InMemoryCache,
 } from "@apollo/client";
+
+import Header from "./Header";
+import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
 import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper";
 
@@ -27,10 +28,10 @@ const createApolloClient = (authToken: string) => {
 
 const App = ({ idToken }: { idToken: string }) => {
   const { loading, logout } = useAuth0();
-  const client = createApolloClient(idToken);
   if (loading) {
     return <div>Loading...</div>;
   }
+  const client = createApolloClient(idToken);
   return (
     <ApolloProvider client={client}>
       <div>
