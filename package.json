@@ -9,7 +9,9 @@
     "@graphql-codegen/typescript": "^4.0.9",
     "@graphql-codegen/typescript-operations": "^4.2.3",
     "@graphql-codegen/typescript-react-apollo": "^4.3.2",
+    "@parcel/watcher": "^2.4.1",
     "graphql": "^16.9.0",
+    "license": "MIT",
     "moment": "2.29.4",
     "prop-types": "15.7.2",
     "react": "16.9.0",
@@ -17,13 +19,14 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "react-scripts": "3.1.2",
-    "typescript": "3.7.4"
+    "typescript": "^5.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate": "graphql-codegen --config codegen.js"
   },
   "eslintConfig": {
     "extends": "react-app"
